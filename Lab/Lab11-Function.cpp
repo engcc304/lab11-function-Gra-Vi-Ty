@@ -25,10 +25,46 @@
 */
 
 #include <stdio.h>
-
 int main() {
 
-    //--| YOUR CODE HERE
+    int num ;
+    printf( "Enter Number:\n\t" ) ;
+    scanf( "%d\n" , &num ) ;
+
+
+    // หาหลักเลข
+    int count = 0 ;
+    if ( num / 1000 >= 1 ) {
+        count = 4 ;
+    } else if ( num / 100 >= 1 ) {
+        count = 3 ;
+    } else if ( num / 10 >= 1 ) {
+        count = 2 ;
+    } // end if
+
+
+     // หาเลขในแต่ละหลัก
+    int d = num / 1000 ; // หาเลขหลักพัน
+    int c = ( num - d * 1000 ) / 100 ; // หาเลขหลักร้อย
+    int b = ( num - ( d * 1000 + c * 100  ) ) / 10 ; // หาเลขหลักสิบ
+    int a = ( num - ( d * 1000 + c * 100  +  b * 10  ) ) / 1 ; // หาเลขหลักหน่วย
+
+
+    int aa = a , bb = b , cc = c , dd = d ;
+    for ( int i = 1 ; i < count ; i++ ) {
+        aa = aa * a ;
+        bb = bb * b ;
+        cc = cc * c ;
+        dd = dd * d ;
+    }  // end for
+
+    int ans = aa + bb + cc + dd ;
+
+    if ( num == ans ) {
+        printf( "\tPass." ) ;
+    } else {
+        printf( "\tNot Pass." ) ;
+    }
 
     return 0 ;
 }//end main function
