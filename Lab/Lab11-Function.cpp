@@ -31,8 +31,6 @@ int main() {
     int num ;
     printf( "Enter Number:\n\t" ) ;
     scanf( "%d\n" , &num ) ;
-    printf( "%d\n" , num ) ;
-    
 
     // หาหลักเลข
     int count = 0 ;
